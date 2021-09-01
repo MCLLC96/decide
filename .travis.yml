@@ -11,12 +11,15 @@ before_script:
 language: python
 python:
   - "3.6"
+  - "2.7"
+  - "3.3"
 install:
+  - pip install -q Django==$DJANGO_VERSION
   - pip install -r requirements.txt
   - pip install codacy-coverage
 script:
   - cd decide
-  - coverage run --branch --source=. ./manage.py test --keepdb --with-xunit
+  - coverage run --branch --source=. ./manage.py test voting/ --keepdb --with-xunit
   - coverage xml
   - python-codacy-coverage -r coverage.xml
 
@@ -26,3 +29,6 @@ notifications:
       - josvilgar1@alum.us.es
       - marllacar1@alum.us.es
     on_success: change 
+env:
+  - DJANGO_VERSION=2.1.13
+  - DJANGO_VERSION=2.2.6
