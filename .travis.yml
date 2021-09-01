@@ -25,5 +25,4 @@ notifications:
     recipients:
       - josvilgar1@alum.us.es
       - marllacar1@alum.us.es
-    on_success: always 
-    on_failure: always
+    on_success: change 
