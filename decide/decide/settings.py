@@ -70,8 +70,6 @@ MODULES = [
     'voting',
 ]
 
-BASEURL = 'http://localhost:8000'
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -180,3 +178,9 @@ if os.path.exists("config.jsonnet"):
 
 
 INSTALLED_APPS = INSTALLED_APPS + MODULES
+
+# Heroku 
+BASEURL = 'https://app-decidee.herokuapp.com'
+APIS = {}
+import django_heroku
+django_heroku.settings(locals())
