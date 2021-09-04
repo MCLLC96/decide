@@ -34,12 +34,6 @@ env:
   #- DJANGO_VERSION=2.2.6
 
 deploy:
-  provider: heroku
-  app: app-decidee
-  strategy: git
-  api_key: 5e819d24-9a53-404d-9d6e-84e88e817ddc
-
-deploy:
   - provider: heroku
     app: app-decidee
     strategy: git
