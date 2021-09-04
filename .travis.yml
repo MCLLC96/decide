@@ -19,6 +19,7 @@ install:
   - pip install codacy-coverage
 script:
   - cd decide
+  - cp travis_local_settings.py local_settings.py
   - coverage run --branch --source=. ./manage.py test voting/ --keepdb --with-xunit
   - coverage xml
   - python-codacy-coverage -r coverage.xml
@@ -32,3 +33,9 @@ notifications:
 env:
   #- DJANGO_VERSION=2.1.13
   #- DJANGO_VERSION=2.2.6
+
+deploy:
+  provider: heroku
+  app: app-decidee
+  strategy: git
+  api_key: 5e819d24-9a53-404d-9d6e-84e88e817ddc
